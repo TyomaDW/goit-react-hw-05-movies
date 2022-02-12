@@ -6,18 +6,22 @@ import Navigation from './components/Navigation';
 import './App.css';
 
 const HomeView = lazy(() =>
-  import('./views/HomeView/HomeView.js' /* webpackChunkName: "home-view"*/),
+  import('./views/HomeView/HomeView.js' /* webpackChunkName: "home-view"*/)
 );
 const MoviesView = lazy(() =>
-  import('./views/MoviesView/MoviesView.js' /* webpackChunkName: "movies-view"*/),
+  import(
+    './views/MoviesView/MoviesView.js' /* webpackChunkName: "movies-view"*/
+  )
 );
 const NotFoundView = lazy(() =>
-  import('./views/NotFoundView/NotFoundView.js' /* webpackChunkName: "not-found-view"*/),
+  import(
+    './views/NotFoundView/NotFoundView.js' /* webpackChunkName: "not-found-view"*/
+  )
 );
 const MovieDetailsView = lazy(() =>
   import(
     './views/MovieDetailsView/MovieDetailsView.js' /* webpackChunkName: "movie-details-view"*/
-  ),
+  )
 );
 
 function App() {
@@ -36,7 +40,7 @@ function App() {
             <MovieDetailsView />
           </Route>
           <Route>
-            {/* <NotFoundView /> */}
+            <NotFoundView />
             <Redirect to="/" />
           </Route>
         </Switch>
