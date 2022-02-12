@@ -16,8 +16,9 @@ const MoviesView = () => {
     if (query) {
       handleSubmit(query);
     }
-  }, []);
+  }, [handleSubmit, query]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleSubmit(query) {
     moviesAPI
       .getMovieByName(query)
