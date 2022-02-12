@@ -13,10 +13,14 @@ import image from '../../images/no-image-new.png';
 import styles from './MovieDetailsView.module.css';
 
 const Cast = lazy(() =>
-  import('../../components/Cast/Cast.jsx' /* webpackChunkName: "cast-component"*/),
+  import(
+    '../../components/Cast/Cast.jsx' /* webpackChunkName: "cast-component"*/
+  )
 );
 const Reviews = lazy(() =>
-  import('../../components/Reviews/Reviews.jsx' /* webpackChunkName: "reviews-component"*/),
+  import(
+    '../../components/Reviews/Reviews.jsx' /* webpackChunkName: "reviews-component"*/
+  )
 );
 
 function MovieDetailsView() {
@@ -37,7 +41,7 @@ function MovieDetailsView() {
       .catch(err => {
         alert(`Something went wronge! The Error apears: "${err.message}" `);
       });
-  }, []);
+  }, [movieId]);
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/');
@@ -80,7 +84,10 @@ function MovieDetailsView() {
                 <NavLink
                   className={styles.navLink}
                   activeClassName={styles.activeNavLink}
-                  to={{ pathname: `${url}/cast`, state: { from: location?.state?.from } }}
+                  to={{
+                    pathname: `${url}/cast`,
+                    state: { from: location?.state?.from },
+                  }}
                 >
                   Cast
                 </NavLink>
@@ -89,7 +96,10 @@ function MovieDetailsView() {
                 <NavLink
                   className={styles.navLink}
                   activeClassName={styles.activeNavLink}
-                  to={{ pathname: `${url}/reviews`, state: { from: location?.state?.from } }}
+                  to={{
+                    pathname: `${url}/reviews`,
+                    state: { from: location?.state?.from },
+                  }}
                 >
                   Reviews
                 </NavLink>
