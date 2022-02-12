@@ -17,7 +17,7 @@ function Cast({ movieId }) {
         setActors(responce.data.cast);
       })
       .catch(err => alert(`Something went wronge! The Error apears: ${err} `));
-  }, []);
+  }, [movieId]);
 
   return (
     <>
@@ -31,7 +31,9 @@ function Cast({ movieId }) {
                 <img src={image} alt={actor.name} />
               )}
               <p className={styles.actorName}>{actor.name}</p>
-              <p className={styles.actorCharacter}>Character: {actor.character}</p>
+              <p className={styles.actorCharacter}>
+                Character: {actor.character}
+              </p>
             </li>
           ))}
         </ul>
